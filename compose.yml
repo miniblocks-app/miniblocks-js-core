@@ -1,0 +1,12 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:80"
+    networks:
+      - blockly-guest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+networks:
+  blockly-guest: 
+    name: blockly-guest
