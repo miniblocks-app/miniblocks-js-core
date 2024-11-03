@@ -1,5 +1,6 @@
 import express from "express";
 import axios from "axios";
+import Config from "../config";
 
 export interface User {
   firstName: string;
@@ -23,14 +24,14 @@ const getAdminToken = async () => {
   let config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: `${process.env.KEYCLOAK_ENDPOINT}/realms/master/protocol/openid-connect/token`,
+    url: `${Config.KEYCLOAK_ENDPOINT}/realms/master/protocol/openid-connect/token`,
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
     data: {
       grant_type: "client_credentials",
       client_id: "admin-cli",
-      client_secret: process.env.KEYCLOAK_ADMIN_CLIENT_SECRET,
+      client_secret: Config.KEYCLOAK_ADMIN_CLIENT_SECRET,
     },
   };
 
@@ -61,7 +62,7 @@ const createUser = async (user: User) => {
   let config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: `${process.env.KEYCLOAK_ENDPOINT}/admin/realms/blockly/users`,
+    url: `${Config.KEYCLOAK_ENDPOINT}/admin/realms/blockly/users`,
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

@@ -27,8 +27,8 @@ class SandboxManager {
       Image: "stargazerdocker/research-sandbox:latest",
       Env: [
         `PORT=:80`,
-        `MONGODB_URI=${Config.sandboxed_mongodb}`,
-        `COLLECTION=${Config.sandboxed_collection}`,
+        `MONGODB_URI=${Config.SANDBOXED_MONGODB}`,
+        `COLLECTION=${Config.SANDBOXED_COLLECTION}`,
         `UID=${uid}`,
       ],
       ExposedPorts: {

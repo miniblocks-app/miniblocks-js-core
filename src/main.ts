@@ -27,8 +27,8 @@ app.use("/api/v1/users", userRouter);
 
 setInterval(async () => SandboxManager.removeExpiredContainers().catch(console.error),60*60*60*1000)
 
-mongoose.connect(Config.sandboxed_mongodb);
+mongoose.connect(Config.SANDBOXED_MONGODB);
 
-app.listen(Config.port, () => {
-    console.log("Server is listening on " + Config.port);
+app.listen(Config.PORT, () => {
+    console.log("Server is listening on " + Config.PORT);
 })

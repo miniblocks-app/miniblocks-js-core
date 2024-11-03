@@ -1,5 +1,6 @@
 import Keycloak from "keycloak-connect";
 import express from "express";
+import Config from "../config";
 
 export interface User {
   firstName: string;
@@ -9,7 +10,7 @@ export interface User {
   username: string;
 }
 
-const configBase64 = process.env.KEYCLOAK_ADAPTER_CONFIG;
+const configBase64 = Config.KEYCLOAK_ADAPTER_CONFIG;
 
 if (!configBase64) {
   throw new Error("KEYCLOAK_ADAPTER_CONFIG is not in the environment!");
