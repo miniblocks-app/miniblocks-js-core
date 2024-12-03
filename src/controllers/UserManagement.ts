@@ -62,7 +62,7 @@ const createUser = async (user: User) => {
   let config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: `${Config.KEYCLOAK_ENDPOINT}/admin/realms/blockly/users`,
+    url: `${Config.KEYCLOAK_ENDPOINT}/admin/realms/miniblocks/users`,
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
